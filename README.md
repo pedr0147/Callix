@@ -27,9 +27,39 @@ Built with React on the frontend and Node.js on the backend.
 
 ## 📁 **Project Structure**
 
-adicionar estrutura
+```bash
+Callix/
+├── backend/                  # Node.js + Express backend
+│   ├── .env                  # Environment variables
+│   ├── package.json
+│   ├── cert.pem / key.pem    # SSL certificates (dev)
+│   └── src/
+│       ├── index.js          # Entry point
+│       ├── controllers/      # Route controllers (auth, group, message)
+│       ├── models/           # Mongoose schemas
+│       ├── routes/           # API route definitions
+│       ├── middleware/       # Auth and validation middleware
+│       └── lib/              # Utilities (DB, socket, cloudinary, etc.)
 
+├── frontend/
+│   └── my-project/           # React + Vite frontend
+│       ├── .env
+│       ├── package.json
+│       ├── index.html
+│       ├── public/           # Static assets (icons, sounds)
+│       ├── src/
+│       │   ├── main.jsx      # Entry point
+│       │   ├── App.jsx
+│       │   ├── index.css
+│       │   ├── constants/    # App constants
+│       │   ├── components/   # UI components (chat, call, modals, etc.)
+│       │   ├── pages/        # Page views (Login, Signup, Profile, etc.)
+│       │   ├── store/        # Zustand stores
+│       │   └── lib/          # Axios, socket, utils
+│       ├── tailwind.config.js
+│       └── vite.config.js
 
+```
 ## ⚙️ **Getting Started**
 
 ### **Clone the repository**
@@ -91,7 +121,24 @@ VITE_RECAPTCHA_SITE_KEY=your_site_key
 ## 🧪 **Future Improvements**
 
 - **Conference Call Support (multi-user)**
+  - Implement Mesh or SFU (MediaSoup, Janus)
+  - Create virtual rooms for multiple participants
+
 - **Push Notifications & User Presence**
+  - Web Push API + fallback (email/SMS)
+  - Typing indicator and online/offline presence
+
 - **Offline Messaging Support**
+  - Queue messages when recipient is offline
+  - Use IndexedDB for local storage
+  - Visual badge for unread messages
+
 - **Call Statistics and Quality Monitoring**
+  - Show real-time RTT, bitrate, packet loss, etc.
+  - Post-call reports with user rating and tech data
+
 - **Production Deployment**
+  - Domain with SSL via Let’s Encrypt
+  - GitHub Actions + Docker + No-IP for deploy
+  - Redis for caching and multi-instance sync
+  - Full reCAPTCHA integration
